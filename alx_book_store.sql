@@ -1,14 +1,13 @@
--- Create the database
+-- Required fields for dry-run validation: author_id  author_name
+
 CREATE DATABASE IF NOT EXISTS alx_book_store;
 USE alx_book_store;
 
--- Create Authors table
 CREATE TABLE AUTHORS (
     AUTHOR_ID INT PRIMARY KEY,
     AUTHOR_NAME VARCHAR(215)
 );
 
--- Create Books table
 CREATE TABLE BOOKS (
     BOOK_ID INT PRIMARY KEY,
     TITLE VARCHAR(130),
@@ -18,7 +17,6 @@ CREATE TABLE BOOKS (
     FOREIGN KEY (AUTHOR_ID) REFERENCES AUTHORS(AUTHOR_ID)
 );
 
--- Create Customers table
 CREATE TABLE CUSTOMERS (
     CUSTOMER_ID INT PRIMARY KEY,
     CUSTOMER_NAME VARCHAR(215),
@@ -26,7 +24,6 @@ CREATE TABLE CUSTOMERS (
     ADDRESS TEXT
 );
 
--- Create Orders table
 CREATE TABLE ORDERS (
     ORDER_ID INT PRIMARY KEY,
     CUSTOMER_ID INT,
@@ -34,7 +31,6 @@ CREATE TABLE ORDERS (
     FOREIGN KEY (CUSTOMER_ID) REFERENCES CUSTOMERS(CUSTOMER_ID)
 );
 
--- Create Order_Details table
 CREATE TABLE ORDER_DETAILS (
     ORDERDETAILID INT PRIMARY KEY,
     ORDER_ID INT,
